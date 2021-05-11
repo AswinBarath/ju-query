@@ -1,0 +1,10 @@
+.App {
+    margin: 0;
+    background-color: rgb(241,241,241);
+    height: auto;
+    width: auto;
+}
+
+*, body {
+    margin: 0;
+}
