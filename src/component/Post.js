@@ -14,7 +14,7 @@ function Post( {key, id, image, query, timestamp, juQueryUser} ) {
                 <Avatar 
                     src={juQueryUser.photo}
                 />
-                <h5>{juQueryUser.displayName ? juQueryUser.displayName : juQueryUser.email }</h5>
+                <h5>{juQueryUser.display ? juQueryUser.display : juQueryUser.email }</h5>
                 <small>{new Date(timestamp?.toDate()).toLocaleString}</small>
             </div>
             <div className="post__body">
