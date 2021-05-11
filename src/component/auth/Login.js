@@ -85,11 +85,11 @@ function Login() {
                                 <span style={{ color: "blue", cursor: "pointer" }}>
                                     Sign Up With Email
                                 </span>
-                                . By continuing you indicate that you have read and agree to JU Query's   
+                                <br />
+                                By continuing you indicate that you have read and agree to JU Query's{" "}   
                                 <span style={{ color: "blue", cursor: "pointer" }}>
                                      Code of Conduct{" "}
                                 </span>
-                                .
                             </p>
                         </div>
                     </div>

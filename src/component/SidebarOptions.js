@@ -7,6 +7,13 @@ function SidebarOptions() {
         <div className = "sidebarOptions">
             <div className = "sidebarOption">
                 <img 
+                    src = "https://qphs.fs.quoracdn.net/main-thumb-t-996-100-bfZBQjeEenKKl8fcNY4tVv0FyArtB0Mb.jpeg"
+                    alt = "Electrical Engg"
+                />
+                <p>Placements</p>
+            </div>
+            <div className = "sidebarOption">
+                <img 
                     src = "https://qphs.fs.quoracdn.net/main-thumb-t-930-100-cbbsbwijdhpyzlpipejvqpiijhhoaday.jpeg"
                     alt = "Mechnical Engg"
                 />
@@ -38,7 +45,7 @@ function SidebarOptions() {
                     src = "https://qphs.fs.quoracdn.net/main-thumb-t-801-100-Sf8h894FXbQZQit0TeqDrrqS6xw6dwCQ.jpeg"
                     alt = "Music"
                 />
-                <p>Music</p>
+                <p>Electrical Engg</p>
             </div>
             <div className = "sidebarOption">
                 <img 
@@ -67,13 +74,6 @@ function SidebarOptions() {
                     alt = "Aerospace Engg"
                 />
                 <p>Aerospace Engg</p>
-            </div>
-            <div className = "sidebarOption">
-                <img 
-                    src = "https://qphs.fs.quoracdn.net/main-thumb-t-996-100-bfZBQjeEenKKl8fcNY4tVv0FyArtB0Mb.jpeg"
-                    alt = "Electrical Engg"
-                />
-                <p>Electrical Engg</p>
             </div>
             <div className = "sidebarOption">
                 <Add />

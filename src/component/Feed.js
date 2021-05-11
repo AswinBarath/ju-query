@@ -9,7 +9,9 @@ function Feed() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        db.collection('queries').orderBy('timestamp', 'desc').onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
+        db.collection('queries')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
             id: doc.id,
             query: doc.data()
         }))))
@@ -22,7 +24,7 @@ function Feed() {
                 posts.map(({id, query}) => (
                     <Post
                         key={id}
-                        id={id}
+                        Id={id}
                         image={query.imageUrl}
                         query= {query.query}
                         timestamp = {query.timestamp}
