@@ -5,8 +5,9 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url("https://www.jainuniversity.ac.in/application/themes/events/assets/images/academics/school-of-commerce-campus.jpg") no-repeat center center fixed;
+    /* background: url("https://www.jainuniversity.ac.in/application/themes/events/assets/images/academics/school-of-commerce-campus.jpg") no-repeat center center fixed; */
     /* background: url("https://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png"); */
+    background-color: #021452;
 }
 
 .login__container {
