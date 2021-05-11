@@ -7,23 +7,25 @@ import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineO
 import { MoreHorizOutlined, ShareOutlined } from '@material-ui/icons';
 import '../css/Post.css';
 
-function Post() {
+function Post( {key, id, image, query, timestamp, juQueryUser} ) {
     return (
         <div className="post">
             <div className="post__info">
-                <Avatar />
-                <h5>Username</h5>
-                <small>Timestamp</small>
+                <Avatar 
+                    src={juQueryUser.photo}
+                />
+                <h5>{juQueryUser.displayName ? juQueryUser.displayName : juQueryUser.email }</h5>
+                <small>{new Date(timestamp?.toDate()).toLocaleString}</small>
             </div>
             <div className="post__body">
                 <div className="post__query">
-                    <p>Question</p>
+                    <p>{query}</p>
                     <button className="post__btnAnswer">Answer</button>
                 </div>
                 <div className="post__answer">
                     <p>Answer</p>
                 </div>
-                <img src= "https://miro.medium.com/max/3608/1*tijYDzC59_wasLntTiBeSg.png" alt="Picture" />
+                <img src= {image} alt="Picture" />
             </div>
             <div className="post__footer">
                 <div className="post__foterAction">
