@@ -6,7 +6,7 @@ import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar, Button, Input } from '@material-ui/core';
-import LinkIcon from '@material-ui/icons/Link'
+import LinkIcon from '@material-ui/icons/Link';
 import LanguageIcon from "@material-ui/icons/Language";
 import '../css/Navbar.css';
 import { useSelector } from 'react-redux';
@@ -37,8 +37,6 @@ function Navbar() {
 
     setInput("");
     setInputUrl("");
-
-
   }
 
   return (
@@ -105,7 +103,7 @@ function Navbar() {
                   className="avatar"
                   src={user.photo}
                 />
-                <p>{user.display ? user.displayName: user.email} asked </p>
+                <p>{user.display ? user.display: user.email} asked </p>
                 <div className="modal__scope">
                   <PeopleAltOutlinedIcon />
                   <p>Public</p>
