@@ -32,7 +32,11 @@ function Post( {Id, image, query, timestamp, juQueryUser} ) {
                     queryId={queryId}
                     queryName={queryName}
             />
-            <PostFooter />
+            <PostFooter 
+                    Id={Id}
+                    queryId={queryId}
+                    queryName={queryName}
+            />
         </div>
     )
 }

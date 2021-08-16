@@ -77,7 +77,7 @@
     cursor: pointer;
 }
 
-.post__foterAction {
+.post__footerAction {
     display: flex;
     justify-content: space-around;
     border-radius: 33px;
@@ -86,13 +86,13 @@
     align-items: center;
 }
 
-.post__foterAction > .MuiSvgIcon-root {
+.post__footerAction > .MuiSvgIcon-root {
     color: gray;
     margin-right: 40px;
     cursor: pointer;
 }
 
-.post__foterAction > .MuiSvgIcon-root:hover {
+.post__footerAction > .MuiSvgIcon-root:hover {
     color: #1b368f;
     margin-right: 40px;
     cursor: pointer;

@@ -4,8 +4,14 @@ import { auth, provider, providerFb } from '../../firebase';
 
 function Login() {
 
+    /*
+    const array = useState("");
+    var email = array[0];
+    const setEmail = array[1];
+    array[1]
+    */
     const [email, setEmail] = useState("");
-    const[password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
 
     const signIn = () => {
         auth.signInWithPopup(provider)
