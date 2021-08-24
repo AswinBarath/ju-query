@@ -4,12 +4,11 @@ import '../css/Post.css';
 function PostGetAnswer( {Id, id, answers} ) {
     return (
         <div className="post__get__answers">
-                <p key={Id} style = {{position: "relative", paddingBottom: "5px"}}>
+                <p key={id} style = {{position: "relative", paddingBottom: "5px"}}>
                                 {
-                                    // Id === answers.queryId ? (
+                                    Id === answers.queryId ? (
                                     <span>
-                                        <div>Answer: {answers.answer}</div>
-                                        {console.log("answers.answer", answers.answer)}
+                                        {answers.answer}
                                         <br />
                                         <span
                                             style = {{
@@ -29,9 +28,9 @@ function PostGetAnswer( {Id, id, answers} ) {
                                             </span>
                                         </span>
                                     </span>
-                                    // ) : (
-                                    //     ""
-                                // )}
+                                    ) : (
+                                         ""
+                                 )
                                 }
                             </p>
         </div>

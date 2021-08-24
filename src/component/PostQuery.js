@@ -22,13 +22,11 @@ function PostQuery( {query, timestamp, juQueryUser} ) {
             db.collection('queries')
                 .doc(queryId).collection('answer')
                 .add({
-                queryId: queryId,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                answer: answer,
-                user: user
+                    user: user,
+                    answer: answer,
+                    queryId: queryId,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
-    
-            console.log(queryId, queryName);
             setAnswer("");
             setOpenModal(false);
         }

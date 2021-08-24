@@ -17,7 +17,7 @@ function PostAnswer( {Id, queryId, queryName} ) {
                     )
                 )
         }
-    }, [queryId]);
+    });
     return (
         <div className="post__answer">
                     {
