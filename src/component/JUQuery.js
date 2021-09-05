@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+// import Sidebar from './Sidebar'
 import Feed from './Feed'
 import '../css/JUQuery.css'
-import Widget from './Widget';
+// import Widget from './Widget';
 
 function JUQuery() {
     return (
