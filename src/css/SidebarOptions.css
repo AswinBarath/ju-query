@@ -1,34 +1,35 @@
-.sidebarOptions {
+.sidebaroptions {
     display: flex;
     flex-direction: column;
 }
 
-.sidebarOption {
+.sidebaroption {
     display: flex;
     align-items: center;
     padding: 10px;
     cursor: pointer;
 }
 
-.sidebarOption:hover {
+.sidebaroption:hover {
     background-color: lightgray;
     border-radius: 5px;
 }
 
-.sidebarOption > img {
+.sidebaroption>img {
     height: 30px;
     margin-left: 20px;
     border-radius: 5px;
 }
 
-.sidebarOption > p {
-    color: gray;
+.sidebaroption>p {
     margin-left: 10px;
+    color: gray;
     font-weight: 400;
 }
 
-.sidebarOption > .MuiSvgIcon-root {
+
+/* .sidebaroption>.MuiSvgIcon-root {
     color: gray;
     font-size: medium;
     margin-left: 20px;
-}
+} */
