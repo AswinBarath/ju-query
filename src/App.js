@@ -10,6 +10,8 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch()
 
+ // Specifying something to react, like component needs to do something after rendering.
+ // Here dispatch is the dependecy we provide, the useEffect triggers the callback function i.e, the first argument each time the state of dispatch (second argument) changes.
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if(authUser) {
@@ -26,6 +28,10 @@ function App() {
     });
   }, [dispatch]);
 
+  // Conditional Rendering based on User's Authentication
+  // Here, user is a custom hook which stores whether the user has authenticated or not
+  // Juquery component is the homepage where the feed is visible for the user
+  // Login component is the authentication page for the user
   return (
     <div className="App">
       {

@@ -10,9 +10,9 @@ function JUQuery() {
         <div className = "juquery">
             <Navbar />
             <div className = "juquery__content">
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <Feed />
-                <Widget />
+                {/* <Widget /> */}
             </div>
         </div>
     );
