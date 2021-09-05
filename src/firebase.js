@@ -1,6 +1,7 @@
-import firebase from 'firebase'
+// Importing "firebase" object from firebase npm package
+import firebase from "firebase";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// firebaseConfig contains all the information of developer API keys and database IDs to access the developer console from firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDuS6G4uVNyZ5d_OuZxGke-Zt2O9FWv0LM",
     authDomain: "ju-query.firebaseapp.com",
@@ -11,13 +12,25 @@ const firebaseConfig = {
     measurementId: "G-VM96DER123"
   };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-const providerFb = new firebase.auth.FacebookAuthProvider();
+// Initializing the firebase App using given configurations
+const firebaseApp=firebase.initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore();
+// Accessing firebase authentication service by creating "auth" object using a method from firebase object
+const auth=firebase.auth()
 
-export {auth, provider, providerFb};
+// Accessing Google OAuth service using firebase object
+const googleProvider= new firebase.auth.GoogleAuthProvider();
+
+// Accessing Facebook OAuth service using firebase object
+const facebookProvider= new firebase.auth.FacebookAuthProvider();
+
+
+// Accessing the firebase firestore service (database) using firebase object for storing user data
+const db=firebaseApp.firestore();
+
+// Exporting auth, googleProvider, facebookProvider objects for using it in login component
+export {auth, googleProvider, facebookProvider};
+
+// Exporting db object for accessing & performing CRUD operations on firestore database
 export default db;
