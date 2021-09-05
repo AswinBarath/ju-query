@@ -9,7 +9,7 @@ import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import '../css/Post.css';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectQuestionId, setQuestionInfo } from '../features/questionSlice';
+import { selectQueryId, setQueryInfo } from '../features/querySlice';
 import db from '../firebase';
 import firebase from 'firebase';
 import { selectUser } from '../features/userSlice';
@@ -17,7 +17,7 @@ import { selectUser } from '../features/userSlice';
 const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
     const [openModal,setOpenModal]=useState(false);
     const dispatch=useDispatch();
-    const questionId=useSelector(selectQuestionId);
+    const questionId=useSelector(selectQueryId);
     const [answer, setAnswer]=useState("");
     const user=useSelector(selectUser);
     const [getAnswer,setGetAnswer]=useState([]);
@@ -46,7 +46,7 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
       };
     return (
         <div className='post'
-        onClick={()=>dispatch(setQuestionInfo({
+        onClick={()=>dispatch(setQueryInfo({
             questionId:Id,
             questionName:query
         }))}>
