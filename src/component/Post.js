@@ -15,21 +15,29 @@ import firebase from 'firebase';
 import { selectUser } from '../features/userSlice';
 
 const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
+
     const [openModal,setOpenModal]=useState(false);
-    const dispatch=useDispatch();
-    const questionId=useSelector(selectQueryId);
     const [answer, setAnswer]=useState("");
-    const user=useSelector(selectUser);
     const [getAnswer,setGetAnswer]=useState([]);
+    const questionId=useSelector(selectQueryId);
+    const user=useSelector(selectUser);
+    const dispatch=useDispatch();
+
     useEffect(()=>{
         if(questionId){
-            db.collection("queries").doc(questionId).collection('answer').orderBy('timestamp','desc')
-            .onSnapshot(snapshot=>setGetAnswer(snapshot.docs.map((doc)=>({
-                id:doc.id,
-                answers:doc.data()
-            }))))
+            db.collection("queries")
+            .doc(questionId)
+            .collection('answer')
+            .orderBy('timestamp','desc')
+            .onSnapshot(snapshot=>
+                setGetAnswer(
+                    snapshot.docs.map((doc)=>({ id:doc.id, answers:doc.data() }))
+                )
+            );
         }
-    })
+    }, [questionId])
+
+
     const handleAnswer = (e) => {
         e.preventDefault();
     
@@ -43,13 +51,21 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
         }
         setAnswer("");
         setOpenModal(false);
-      };
+    };
+
+
     return (
+
         <div className='post'
-        onClick={()=>dispatch(setQueryInfo({
-            questionId:Id,
-            questionName:query
-        }))}>
+            onClick={()=>
+                dispatch(
+                    setQueryInfo({
+                        questionId:Id,
+                        questionName:query
+                    })
+                )
+            }
+        >
             <div className='post__info'>
                 <Avatar
                 src={juQueryUser.photo}
