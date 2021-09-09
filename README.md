@@ -28,22 +28,22 @@ An **Online QnA (Question and Answer) platform** for students and faculties of J
 
 ## Screenshots
 
-- Registration page
+### Registration page
 <p>
 <img src="assets/screenshots/JU%20Query%20Registration%20Page.png" alt="Registration page" width=800px />
 </p>
 
-- Home page
+### Home page
 <p>
 <img src="assets/screenshots/JU%20Query%20Feed.png" alt="Home page" width=800px />
 </p>
 
-- Add Query feature
+### Add Query feature
 <p>
 <img src="assets/screenshots/JU%20Query%20Add%20Query.png" alt="Add Query feature" width=800px />
 </p>
 
-- Add Answer feature
+### Add Answer feature
 <p>
 <img src="assets/screenshots/JU%20Query%20Add%20Answer.png" alt="Add Answer feature" width=800px />
 </p>
