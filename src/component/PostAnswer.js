@@ -21,6 +21,7 @@ function PostAnswer( {Id, queryId, queryName} ) {
     return (
         <div className="post__answer">
                     {
+                        // eslint-disable-next-line array-callback-return
                         getAnswer.map(({id, answers}) => {
                             <PostGetAnswer
                                 Id={Id}

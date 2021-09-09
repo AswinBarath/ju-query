@@ -96,7 +96,7 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
                         </div>
                         <div className='modal__button'>
                             <button className='cancle' onClick={()=>setOpenModal(false)}>
-                                Cancle</button>
+                                Cancel</button>
                             <button type='submit' className='add' onClick={handleAnswer}>
                                 Add Answer
                             </button>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css';
 import { useState } from 'react';
-import {auth, googleProvider, facebookProvider} from '../../firebase';
+import {auth, googleProvider, facebookProvider } from '../../firebase';
 
 // Login (functional) component which takes care of user input for email-password option from login
 const Login=()=> {
@@ -16,7 +16,7 @@ const Login=()=> {
         e.preventDefault()
         auth.signInWithEmailAndPassword(email,password)
         .then((auth)=>{
-            console.log(auth)
+            // console.log(auth)
         }).catch((e)=>alert(e.message))
     }
     const handleRegister=(e)=>{
@@ -24,7 +24,7 @@ const Login=()=> {
         auth.createUserWithEmailAndPassword(email,password)
         .then((auth)=>{
             if(auth){
-                console.log(auth)
+                // console.log(auth)
             }
         }).catch((e)=>alert(e.message));
         setEmail("");
@@ -32,13 +32,16 @@ const Login=()=> {
     }
 
     // Callback functions which takes care of Google & Facebook OAuth using "auth" (firebase authentication) object
-    // auth object provides us with a lot of in-built methods, including "signInWithPopup" which opens up a pop-up for choosing google account for login
-    // "googleProvider" is another object which stores "firebase.auth.GoogleAuthProvider()" - (create in firebase.jsx component)
+    // auth object provides us with a lot of in-built methods, 
+    // including "signInWithPopup" which opens up a pop-up for choosing google account for login
+    // "googleProvider" is another object which stores "firebase.auth.GoogleAuthProvider()" 
+    // - (create in firebase.jsx component)
     const signInUsingGoogle=()=>{
         auth.signInWithPopup(googleProvider).catch((e)=>alert(e.message));
     }
 
-    // "facebookProvider" is another object which stores "firebase.auth.FacebookAuthProvider()" - (create in firebase.jsx component)
+    // "facebookProvider" is another object which stores "firebase.auth.FacebookAuthProvider()" 
+    // - (create in firebase.jsx component)
     const signInUsingFacebook=()=>{
         auth.signInWithPopup(facebookProvider).catch((e)=>alert(e.message));
     }
@@ -81,7 +84,7 @@ const Login=()=> {
                                 src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo-500x350.png"
                                 alt=""
                                 />
-                            <p onLick={signInUsingFacebook}>Continue With Facebook</p>
+                            <p onClick={signInUsingFacebook}>Continue With Facebook</p>
                         </div>
 
                         {/* Email & Password authentication info container */}

@@ -8,7 +8,7 @@ import { auth } from './firebase';
 
 function App() {
   const user = useSelector(selectUser);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
  // Specifying something to react, like component needs to do something after rendering.
  // Here dispatch is the dependecy we provide, the useEffect triggers the callback function 
@@ -22,7 +22,7 @@ function App() {
           display: authUser.displayName,
           email: authUser.email
         }));
-        console.log(authUser);
+        // console.log(authUser);
       } else {
         dispatch(logout());
       }

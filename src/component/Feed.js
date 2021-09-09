@@ -9,27 +9,28 @@ import '../css/SidebarOptions.css';
 function Feed() {
 
     const [posts, setPosts] = useState([]);
-    const [selection,setSelection]=useState("");
+    const [selection,setSelection]=useState("feed");
     
     // useEffect() performs two queries for the database 
     // 1. If user selects the topic to see, 
     // 2. If the user didn't choose, hence display all of the posts
     useEffect(() => {
-        selection?db.collection('queries')
-        .orderBy('timestamp', 'desc')
-        .where('section','==',selection)
-        .onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
-        id: doc.id,
-        query: doc.data(),
-    }
-    )))):
-    db.collection('queries')
+        selection === "feed" ?
+            db.collection('queries')
             .orderBy('timestamp', 'desc')
             .onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
             id: doc.id,
-            query: doc.data()       }
+            query: doc.data(),
+            }
+        )))):
+            db.collection('queries')
+            .orderBy('timestamp', 'desc')
+            .where('section','==',selection)
+            .onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
+            id: doc.id,
+            query: doc.data()       
+            }
         ))))
-        
     })
     return (
         <div className='main'>
@@ -113,6 +114,7 @@ function Feed() {
                     ))
                 }
             </div>
+            
             <div className="widget">
             <div className="widget__header">
                 <h5>Spaces to follow</h5>
@@ -140,6 +142,7 @@ function Feed() {
             </div>
         </div>
         </div>
+        
         </div>
     )
 }
