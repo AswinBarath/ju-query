@@ -11,7 +11,8 @@ function App() {
   const dispatch = useDispatch()
 
  // Specifying something to react, like component needs to do something after rendering.
- // Here dispatch is the dependecy we provide, the useEffect triggers the callback function i.e, the first argument each time the state of dispatch (second argument) changes.
+ // Here dispatch is the dependecy we provide, the useEffect triggers the callback function 
+ // i.e, the first argument each time the state of dispatch (second argument) changes.
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if(authUser) {

@@ -4,13 +4,16 @@ import db from '../firebase';
 import Post from './Post';
 import QueryBox from './QueryBox';
 // import Sidebar from './Sidebar';
+import '../css/SidebarOptions.css';
 
 function Feed() {
 
     const [posts, setPosts] = useState([]);
-    const [selection,setSelection]=useState()
-    console.log(selection)
-    // There are two queries for Database 1. If user selects the topic to see, 2. If the user didn't choose, hence display all of the posts
+    const [selection,setSelection]=useState("");
+    
+    // useEffect() performs two queries for the database 
+    // 1. If user selects the topic to see, 
+    // 2. If the user didn't choose, hence display all of the posts
     useEffect(() => {
         selection?db.collection('queries')
         .orderBy('timestamp', 'desc')
@@ -22,7 +25,6 @@ function Feed() {
     )))):
     db.collection('queries')
             .orderBy('timestamp', 'desc')
-            // .where('section','==',selection)
             .onSnapshot(snapshot => setPosts(snapshot.docs.map((doc)=> ({
             id: doc.id,
             query: doc.data()       }
