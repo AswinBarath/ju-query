@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import QueryBox from './QueryBox';
 import Post from './Post';
+import db from '../firebase';
 import '../css/Feed.css';
 
-function Feed( {posts} ) {
+function Feed() {
 
+    const [posts,setPosts] = useState([])
+    useEffect(()=> {
+        db.collection('questions').orderBy('timestamp','desc').onSnapshot
+        (snapshot => setPosts(
+            snapshot.docs.map((doc) => (({ 
+                id:doc.id,
+                question:doc.data(),
+            })))));
+    },[])
     return (
-            <div className="feed">
-                <QueryBox />
-                {
-                    posts.map(({qid, query}) => (
-                        <Post
-                            key = {qid}
-                            qid = {qid}
-                            image = {query.imageUrl}
-                            section = {query.section}
-                            query = {query.question}
-                            timestamp = {query.timestamp}
-                            juQueryUser = {query.user}
-                        />
-                    ))
-                }
-            </div>
+        <div className="feed">
+            <QueryBox />
+            {
+                posts.map(({id,question})=> (
+                    <Post key={id} 
+                    id={id} 
+                    imageUrl={question.imageUrl} 
+                    question={question.question}
+                    timestamp = {question.timestamp}
+                    JuUser = {question.user}
+                    />
+                ))
+            }
+        </div>
     )
 }
 
-export default Feed;
+export default Feed
+

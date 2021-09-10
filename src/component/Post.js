@@ -1,48 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectQueryId, setQueryInfo } from '../features/querySlice';
+import { selectQuestionId, setQuestionInfo } from '../features/querySlice';
 import { selectUser } from '../features/userSlice';
 import firebase from 'firebase';
 import db from '../firebase';
 import Modal from 'react-modal';
 import { Avatar } from '@material-ui/core';
-import ArrowUpwardOutlinedIcon from '@material-ui/icons/ArrowUpwardOutlined';
-import ArrowDownwardOutlinedIcon from '@material-ui/icons/ArrowDownwardOutlined';
-import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
-import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
-import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
-import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
+import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutline, MoreHorizOutlined, RepeatOutlined, ShareOutlined } from '@material-ui/icons';
 import '../css/Post.css';
 
-const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
+const Post = ( { id, question, imageUrl, timestamp, section, JuUser } ) => {
 
-    const [openModal,setOpenModal]=useState(false);
+    const [openModal,setOpenModal] = useState(false);
+    const dispatch = useDispatch();
+    const questionId = useSelector(selectQuestionId);
     const [answer, setAnswer]=useState("");
-    const [getAnswer,setGetAnswer]=useState([]);
-    const questionId=useSelector(selectQueryId);
     const user=useSelector(selectUser);
-    const dispatch=useDispatch();
-
+    const [getAnswer,setGetAnswer]=useState([]);
     useEffect(()=>{
         if(questionId){
-            db.collection("queries")
-            .doc(questionId)
-            .collection('answer')
-            .orderBy('timestamp','desc')
-            .onSnapshot(snapshot=>
-                setGetAnswer(
-                    snapshot.docs.map((doc)=>({ id:doc.id, answers:doc.data() }))
-                )
-            );
+            db.collection("questions").doc(questionId).collection('answer').orderBy('timestamp','desc')
+            .onSnapshot(snapshot=>setGetAnswer(snapshot.docs.map((doc)=>({
+                id:doc.id,
+                answers:doc.data()
+            }))))
         }
-    }, [questionId])
-
-
+    })
     const handleAnswer = (e) => {
         e.preventDefault();
     
         if (questionId) {
-          db.collection("queries").doc(questionId).collection("answer").add({
+          db.collection("questions").doc(questionId).collection("answer").add({
             user: user,
             answer: answer,
             questionId: questionId,
@@ -51,38 +39,26 @@ const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
         }
         setAnswer("");
         setOpenModal(false);
-    };
-
+      };
 
     return (
-
-        <div className='post'
-            onClick={()=>
-                dispatch(
-                    setQueryInfo({
-                        questionId:qid,
-                        questionName:query
-                    })
-                )
-            }
-        >
-            <div className='post__info'>
-                <Avatar
-                src={juQueryUser.photo}
-                />
+        <div className="post" onClick={()=>dispatch(setQuestionInfo({
+            questionId:id,
+            questionName:question,
+        }))}>
+            <div className="post_info">
+                <Avatar src={JuUser.photo}/>
                 <div className='post__details'>
-                    <h5>{juQueryUser.display?juQueryUser.display:juQueryUser.email}</h5>
+                    <h5>{JuUser.displayName?JuUser.displayName:JuUser.email}</h5>
                     <span>posted on</span>
                     <p>{section}</p>
                     <small>{new Date(timestamp?.toDate()).toLocaleString()}</small>
                 </div>
             </div>
-            <div className='post__body'>
-                <div className='post__question'>
-                    <p>{query}</p>
-                    <button className='post__btnAnswer' onClick={()=>setOpenModal(true)}>
-                        Answer
-                    </button>
+            <div className="post_body">
+                <div className="question">
+                    <p>{question}</p>
+                    <button className="btnanswer" onClick={()=>setOpenModal(true)}>Answer</button>
                     <Modal isOpen={openModal}
                         onRequestClose={()=>setOpenModal(false)}
                         shouldCloseOnOverlayClick={false}
@@ -99,8 +75,8 @@ const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
                             }
                         }}>
                         <div className='modal__question'>
-                            <h1>{query}</h1>
-                            <p>asked by <span className='name'>{juQueryUser.display?juQueryUser.display:juQueryUser.email}</span>{""}
+                            <h1>{question}</h1>
+                            <p>asked by <span className='name'>{JuUser.displayName?JuUser.displayName:JuUser.email}</span>{""}
                              on <span className='name'> {new Date(timestamp?.toDate()).toLocaleString()}</span>
                             </p>
                         </div>
@@ -111,7 +87,7 @@ const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
                             />
                         </div>
                         <div className='modal__button'>
-                            <button className='cancle' onClick={()=>setOpenModal(false)}>
+                            <button className='cancel' onClick={()=>setOpenModal(false)}>
                                 Cancel</button>
                             <button type='submit' className='add' onClick={handleAnswer}>
                                 Add Answer
@@ -119,58 +95,52 @@ const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
                         </div>     
                     </Modal>
                 </div>
-                <div className='post__answer'>
-                    {getAnswer.map(({aid,answers})=>(
-                        <p
-                        key = {aid}
-                        style = {{position:"relative",
-                                  paddingBottom:"5px"}}
-                        >
-                            {
-                                qid===answers.questionId?(
-                                    <span>
-                                        {answers.answer}
-                                        <br />
-                                        <span
-                                        style={{
-                                            color:"gray",
-                                            fontSize:"small",
-                                            display:"flex",
-                                            right:"0px"
-                                        }}>
-                                            <span style={{color:"#3052c0"}}>
-                                                { answers.user.displayName ? answers.user.displayName : answers.user.email} {" "}
-                                                on {" "}
-                                                {new Date(answers.timestamp?.toDate()).toLocaleString()}
-                                            </span>
-                                        </span>
+                <div className="answer">
+                {getAnswer.map(({Id,answers})=>(
+                    <p key={Id}  style={{position:"relative",paddingBottom:"5px"}}> {
+                        id===answers.questionId?(
+                            <span>
+                                {answers.answer}
+                                <br />
+                                <span
+                                style={{
+                                    color:"gray",
+                                    fontSize:"small",
+                                    display:"flex",
+                                    right:"0px"
+                                }}>
+                                    <span style={{color:"#3052c0"}}>
+                                        {answers.user.displayName?answers.user.displayName:answers.user.email}{" "}
+                                        on{" "}
+                                        {new Date(answers.timestamp?.toDate()).toLocaleString()}
                                     </span>
-                                ):(
-                                    ""
-                                )
-                            }
-                        </p>
-                    ))}
-                </div>
-                <img src={image} 
-                alt="" />
+                                </span>
+                            </span>
+                        ):(
+                            ""
+                        )
+                    }
+                </p>
+            ))}
+        </div>
+        <img src={imageUrl} 
+        alt="" />
+               
             </div>
-            <div className='post__footer'>
-                <div className='post__footerAction'>
-                    <ArrowUpwardOutlinedIcon/>
-                    <ArrowDownwardOutlinedIcon/>
+            <div className="footer">
+                <div className="action">
+                    <ArrowUpwardOutlined />
+                    <ArrowDownwardOutlined />
                 </div>
-                <div className='post__footerMiddle'>
-                    <RepeatOutlinedIcon/>
-                    <ChatBubbleOutlineOutlinedIcon/>
-                </div>
-                <div className='post__footerLeft'>
-                    <ShareOutlinedIcon/>
-                    <MoreHorizOutlinedIcon/>
+                <RepeatOutlined />
+                <ChatBubbleOutline />
+                <div className="footer_left">
+                    <ShareOutlined />
+                    <MoreHorizOutlined />
                 </div>
             </div>
         </div>
     );
 };
 
-export default Post
+export default Post;

@@ -1,23 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const querySlice = createSlice({
-  name: 'query',
-  initialState: {
-    queryId: null,
-    queryName: null
+export const questionSlice = createSlice({
+  name: 'question',
+  initialState:{
+    questionId:null,
+    questionName:null
   },
+  
+  
   reducers: {
-    setQueryInfo: (state, action) => {
-        state.queryId = action.payload.queryId;
-        state.queryName = action.payload.queryName;
-    },
+    setQuestionInfo: (state,action) => {
+      state.questionId = action.payload.questionId;
+      state.questionName = action.payload.questionName; 
+    }
   },
 });
 
-export const { setQueryInfo } = querySlice.actions;
+export const {setQuestionInfo} = questionSlice.actions;
 
-export const selectQueryId = (state) => state.query.queryId;
+export const selectQuestionId = (state) => state.question.questionId;
 
-export const selectQueryName = (state) => state.query.queryName;
+export const selectQuestionName = (state) => state.question.questionName;
 
-export default querySlice.reducer;
+export default questionSlice.reducer;

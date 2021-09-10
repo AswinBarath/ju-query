@@ -1,13 +1,11 @@
-import React from 'react'
-import '../css/QueryBox.css';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
-import {Avatar, Input} from '@material-ui/core';
-import { useState } from 'react';
+import firebase from 'firebase';
 import db from '../firebase';
 import Modal from 'react-modal';
-import { Link } from '@material-ui/icons';
-import firebase from 'firebase';
+import {Avatar, Input, Link } from '@material-ui/icons';
+import '../css/QueryBox.css';
 
 Modal.setAppElement("#root");
 const QueryBox=() =>{

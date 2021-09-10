@@ -1,17 +1,17 @@
 .post {
-    display: flex;
+    display:flex;
     flex-direction: column;
     padding: 10px;
     background-color: white;
-    border: 1px solid lightgray;
-    border-radius: 5px;
+    border:1px Solid lightgray;
+    border-radius:5px;
+    margin-top:10px;
 }
-
-.post__info {
-    display: flex;
-    align-items: center;
+.post__details > span {
+    color: gray;
+    margin-left: 10px;
+    font-size: 13px;
 }
-
 .post__details {
     display: flex;
     align-items: center;
@@ -20,121 +20,133 @@
     font-size: 17px;
 }
 
-.post__details>span {
+.post__details > span {
     color: gray;
     margin-left: 10px;
     font-size: 13px;
 }
 
-.post__details>h5:hover {
+.post__details > h5:hover {
     text-decoration: underline;
 }
 
-.post__details>p {
+.post__details > small {
     margin-left: 10px;
+}
+
+.post_info {
+    display:flex;
+    align-items: center;
+}
+
+.post_info > h5 {
+    margin-left:10px;
+    cursor: pointer;
     font-size: 13px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 2px;
-    background-color: gray;
-    color: white;
 }
 
-.post__details>small {
-    margin-left: 10px;
+.post_info > h5:hover 
+{   
+    text-decoration: underline;
 }
 
+.post_info > small {
+    margin-left:10px;
+}
 
-/* need to change in above */
-
-.post__body {
-    display: flex;
+.post_body {
+    display:flex;
     flex-direction: column;
 }
-
-.post__body>.post__question {
+.post_body > .question {
     margin-top: 10px;
-    margin-bottom: 10px;
     font-weight: bold;
+    margin-bottom:10px;
     cursor: pointer;
     display: flex;
 }
-
-.post__question>.post__btnAnswer {
-    margin-left: auto;
-    outline: none;
-    border: none;
-    background-color: blue;
-    color: white;
-    border-radius: 30px;
-    padding: 10px;
-}
-
-.post__body>.post__question>p:hover {
+.post_body > .question :hover {
     text-decoration: underline;
 }
 
-.post__body>img {
+.post_body > img
+{
     object-fit: contain;
     width: 100%;
-    border-radius: 5px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.question > .btnanswer
+{
+    margin-left: auto;
+    outline: none;
+    border:none;
+    background-color: rgb(52, 112, 202);
+    color:white;
+    border-radius: 30px;
+    padding: 10px;
     cursor: pointer;
 }
 
-.post__footer {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+.question > .btnanswer:hover
+{
+    background-color: rgb(34, 103, 207);
+    text-decoration: none;
 }
 
-.post__footerMiddle {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
+.post_body > .question > p:hover {
+    text-decoration: underline;
 }
 
-.post__footerMiddle>.MuiSvgIcon-root {
-    color: gray;
-    margin: 10px;
+
+.footer
+{
+    display:flex;
+    align-items:center;
+    margin-top:10px;
+}
+
+.footer > .MuiSvgIcon-root
+{
+    color:grey;
+    margin-right:40px;
     cursor: pointer;
 }
 
-.post__footerAction {
+.footer > .action
+{
     display: flex;
     justify-content: space-around;
     border-radius: 33px;
-    padding: 5px;
-    background-color: lightgray;
+    padding:5px;
     align-items: center;
+    background-color: lightgrey; 
+    margin-top: 10px;
 }
 
-.post__footerAction>.MuiSvgIcon-root {
-    color: gray;
-    margin-right: 20px;
-    margin-left: 20px;
-    cursor: pointer;
-}
+ .action > .MuiSvgIcon-root {
+     color: grey;
+     margin-right: 40px;
+     cursor: pointer;
+ }
 
-.post__footerAction>.MuiSvgIcon-root:hover {
-    color: #1b368f;
-}
-
-.post__footer>.MuiSvgIcon-root {
-    color: gray;
+ .action > .MuiSvgIcon-root:hover {
+    color:rgb(3, 83, 129);
     margin-right: 40px;
     cursor: pointer;
 }
 
-.post__footerLeft {
+.footer_left 
+{
     margin-left: auto;
 }
-
-.post__footerLeft>.MuiSvgIcon-root {
-    color: gray;
+.footer_left > .MuiSvgIcon-root
+{
+    margin-left:30px;
     cursor: pointer;
-    margin-left: 30px;
+    color:gray;
+
 }
 
 .modal__question {
@@ -143,30 +155,30 @@
     flex-direction: column;
 }
 
-.modal__question>h1 {
+.modal__question > h1 {
     color: #3052c0;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.modal__question>p {
+.modal__question > p {
     color: gray;
     font-size: small;
     margin-bottom: 5px;
 }
 
-.modal__question>p>.name {
+.modal__question > p > .name {
     color: black;
     font-weight: bold;
     margin-right: 2px;
 }
 
-.modal__answer>textarea {
+.modal__answer > textarea {
     width: 100%;
     height: 180px;
     padding: 5px;
     font-size: 15px;
-    color: blue;
+    color: black;
 }
 
 .modal__button {
@@ -176,7 +188,7 @@
     border-top: 1px solid lightgray;
 }
 
-.modal__button>.cancle {
+.modal__button > .cancel {
     margin-left: auto;
     border: none;
     margin-top: 5px;
@@ -189,11 +201,11 @@
     cursor: pointer;
 }
 
-.modal__button>.add {
+.modal__button > .add {
     border: none;
     outline: none;
     margin-top: 5px;
-    background-color: rgb(0, 64, 255);
+    background-color: rgb(11, 118, 189);
     color: white;
     font-weight: 700;
     padding: 10px;
