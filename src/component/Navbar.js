@@ -7,7 +7,7 @@ import firebase from 'firebase';
 import {AssignmentTurnedInOutlined,FeaturedPlayListOutlined,LanguageOutlined, LinkOutlined, NotificationsOutlined, PeopleAltOutlined, SearchOutlined } from '@material-ui/icons';
 import { Avatar, Button,Input} from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
-import logo from '../image/Icon.jpg';
+import logo from '../assets/jgi_logo.jpg';
 import "../css/Navbar.css";
 
 Modal.setAppElement("#root");
