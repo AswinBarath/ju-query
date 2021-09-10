@@ -5,9 +5,7 @@ export const questionSlice = createSlice({
   initialState:{
     questionId:null,
     questionName:null
-  },
-  
-  
+  },  
   reducers: {
     setQuestionInfo: (state,action) => {
       state.questionId = action.payload.questionId;

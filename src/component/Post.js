@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectQuestionId, setQuestionInfo } from '../features/querySlice';
-import { selectUser } from '../features/userSlice';
-import firebase from 'firebase';
-import db from '../firebase';
-import Modal from 'react-modal';
 import { Avatar } from '@material-ui/core';
 import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutline, MoreHorizOutlined, RepeatOutlined, ShareOutlined } from '@material-ui/icons';
+import React, { useEffect,useState } from 'react';
 import '../css/Post.css';
+import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectQuestionId, setQuestionInfo} from '../features/questionSlice';
+import db from '../Firebase';
+import firebase from 'firebase';
+import { selectUser } from '../features/userSlice';
 
-const Post = ( { id, question, imageUrl, timestamp, section, JuUser } ) => {
+const Post = ({id,question,imageUrl,timestamp,section,JuUser}) => {
 
     const [openModal,setOpenModal] = useState(false);
     const dispatch = useDispatch();
