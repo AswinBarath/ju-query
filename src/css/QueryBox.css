@@ -1,39 +1,42 @@
-.queryBox {
-    display: flex;
+.wrapper {
+    display:flex;
     flex-direction: column;
     padding: 10px;
     border: 1px solid lightgray;
     background-color: white;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 2px;
+    cursor:pointer;
 }
 
-.queryBox:hover {
-    border: 1px solid gray;
+.wrapper:hover {
+    border:1px solid lightgray;
 }
 
-.queryBox__info {
-    display: flex;
-    align-items: center;
+.info
+{
+    display:flex;
+    align-items:center;
 }
 
-.queryBox__info>h5 {
-    color: rgb(129, 129, 129);
+.info > h5
+{
+    color:rgb(114, 114, 131);
     font-weight: 300;
-    margin-left: 10px;
+    margin-left:10px;
 }
 
-.queryBox__query {
+.box
+{
     display: flex;
     margin-top: 8px;
 }
 
-.queryBox__query>p {
-    color: gray;
+.box > p
+{
     font-weight: bold;
+    color: grey;
     font-size: large;
 }
-
 .modal__title {
     display: flex;
     align-items: center;
@@ -41,7 +44,7 @@
     border-bottom: 1px solid rgba(187, 187, 187, 0.5);
 }
 
-.modal__title>h5 {
+.modal__title > h5 {
     color: gray;
     font-size: 20px;
     cursor: pointer;
@@ -49,8 +52,8 @@
     margin-right: 30px;
 }
 
-.modal__title>h5:hover {
-    color: #3052c0;
+.modal__title > h5:hover {
+    color: #16171a;
 }
 
 .modal__info {
@@ -59,13 +62,13 @@
     margin-top: 30px;
 }
 
-.modal__info>p {
+.modal__info > p {
     margin-left: 10px;
     font-size: small;
     color: gray;
 }
 
-.modal__info>.modal__select>select {
+.modal__info > .modal__select>select {
     color: rgb(98, 98, 98);
     padding: 5px;
     margin-left: 10px;
@@ -81,14 +84,14 @@
     flex: 1;
 }
 
-.modal__field>.modal__fieldLink {
+.modal__field > .modal__fieldLink {
     color: gray;
     display: flex;
     margin-top: 10px;
     align-items: center;
 }
 
-.modal__field>.modal__fieldLink>.modal__link {
+.modal__field > .modal__fieldLink>.modal__link {
     flex: 1;
     border: none;
     outline: none;
@@ -103,7 +106,7 @@
     border-top: 1px solid lightgray;
 }
 
-.modal__buttons>.cancle {
+.modal__buttons >.cancel {
     margin-left: auto;
     border: none;
     margin-top: 5px;
@@ -116,11 +119,11 @@
     cursor: pointer;
 }
 
-.modal__buttons>.add {
+.modal__buttons >.add {
     border: none;
     outline: none;
     margin-top: 5px;
-    background-color: rgb(0, 64, 255);
+    background-color:#1b6be4;
     color: white;
     font-weight: 700;
     padding: 10px;
