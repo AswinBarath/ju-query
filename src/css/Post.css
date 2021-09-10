@@ -7,7 +7,7 @@
     border-radius:5px;
     margin-top:10px;
 }
-.post__details > span {
+.post__details>span {
     color: gray;
     margin-left: 10px;
     font-size: 13px;
@@ -20,17 +20,17 @@
     font-size: 17px;
 }
 
-.post__details > span {
+.post__details>span {
     color: gray;
     margin-left: 10px;
     font-size: 13px;
 }
 
-.post__details > h5:hover {
+.post__details>h5:hover {
     text-decoration: underline;
 }
 
-.post__details > small {
+.post__details>small {
     margin-left: 10px;
 }
 
@@ -39,18 +39,18 @@
     align-items: center;
 }
 
-.post_info > h5 {
+.post_info>h5 {
     margin-left:10px;
     cursor: pointer;
     font-size: 13px;
 }
 
-.post_info > h5:hover 
+.post_info>h5:hover 
 {   
     text-decoration: underline;
 }
 
-.post_info > small {
+.post_info>small {
     margin-left:10px;
 }
 
@@ -58,18 +58,18 @@
     display:flex;
     flex-direction: column;
 }
-.post_body > .question {
+.post_body>.question {
     margin-top: 10px;
     font-weight: bold;
     margin-bottom:10px;
     cursor: pointer;
     display: flex;
 }
-.post_body > .question :hover {
+.post_body>.question :hover {
     text-decoration: underline;
 }
 
-.post_body > img
+.post_body>img
 {
     object-fit: contain;
     width: 100%;
@@ -77,25 +77,25 @@
     cursor:pointer;
 }
 
-.question > .btnanswer
+.question>.btnanswer
 {
     margin-left: auto;
     outline: none;
     border:none;
-    background-color: rgb(52, 112, 202);
+    background-color: #1b368f;
     color:white;
     border-radius: 30px;
     padding: 10px;
     cursor: pointer;
 }
 
-.question > .btnanswer:hover
+.question>.btnanswer:hover
 {
-    background-color: rgb(34, 103, 207);
+    background-color: #1b368f;
     text-decoration: none;
 }
 
-.post_body > .question > p:hover {
+.post_body>.question>p:hover {
     text-decoration: underline;
 }
 
@@ -107,14 +107,14 @@
     margin-top:10px;
 }
 
-.footer > .MuiSvgIcon-root
+.footer>.MuiSvgIcon-root
 {
     color:grey;
     margin-right:40px;
     cursor: pointer;
 }
 
-.footer > .action
+.footer>.action
 {
     display: flex;
     justify-content: space-around;
@@ -125,14 +125,14 @@
     margin-top: 10px;
 }
 
- .action > .MuiSvgIcon-root {
+ .action>.MuiSvgIcon-root {
      color: grey;
      margin-right: 40px;
      cursor: pointer;
  }
 
- .action > .MuiSvgIcon-root:hover {
-    color:rgb(3, 83, 129);
+ .action>.MuiSvgIcon-root:hover {
+    color:#1b368f;
     margin-right: 40px;
     cursor: pointer;
 }
@@ -141,7 +141,7 @@
 {
     margin-left: auto;
 }
-.footer_left > .MuiSvgIcon-root
+.footer_left>.MuiSvgIcon-root
 {
     margin-left:30px;
     cursor: pointer;
@@ -155,25 +155,25 @@
     flex-direction: column;
 }
 
-.modal__question > h1 {
-    color: #3052c0;
+.modal__question>h1 {
+    color: #1b368f;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.modal__question > p {
+.modal__question>p {
     color: gray;
     font-size: small;
     margin-bottom: 5px;
 }
 
-.modal__question > p > .name {
+.modal__question>p>.name {
     color: black;
     font-weight: bold;
     margin-right: 2px;
 }
 
-.modal__answer > textarea {
+.modal__answer>textarea {
     width: 100%;
     height: 180px;
     padding: 5px;
@@ -188,7 +188,7 @@
     border-top: 1px solid lightgray;
 }
 
-.modal__button > .cancel {
+.modal__button>.cancel {
     margin-left: auto;
     border: none;
     margin-top: 5px;
@@ -201,7 +201,7 @@
     cursor: pointer;
 }
 
-.modal__button > .add {
+.modal__button>.add {
     border: none;
     outline: none;
     margin-top: 5px;

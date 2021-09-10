@@ -1,101 +1,108 @@
-.qHeader {
+.navbar
+{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1px;
-    background-color: white;
+    background-color:white;
     width: 100%;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    box-shadow: 0px 5px 8px -9px rgba(0,0,0,0.5);
+    position:sticky;
+    z-index:1000;
+    top:0;
+    box-shadow:0px 5px 8px -9px rgba(0,0,0,0.5);
 }
 
-.qHeader__logo > img {
-    height: 60px;
-    margin-right: 20px;
+.header_logo>img
+{
+   height:60px;
+   margin-right:20px; 
+   
 }
-
-.qHeader__icons {
-    display: flex;
-    margin-right: 20px;
+.icons_wrapper
+{
+   display: flex;
+   margin-right:20px; 
 }
-
-.qHeader__icon > .MuiSvgIcon-root {
-    color: gray;
+.icon > .MuiSvgIcon-root 
+{
+    color:#1b368f;
     cursor: pointer;
     font-size: xx-large;
     padding: 5px 20px;
+}   
+.icon > .MuiSvgIcon-root:hover
+{
+        color:#1b368f;
+        border-radius:10px;
+        background-color:lightgray;
 }
 
-.qHeader__icon > .MuiSvgIcon-root:hover {
-    color: #1b368f;
-    border-radius: 10px;
-    background-color: lightgray;
-}
-
-.qHeader__input {
+.search
+{
     display: flex;
     align-items: center;
-    border: 1px solid lightgray;
-    padding: 5px;
-    border-radius: 5px;
-}
+    border:1px solid lightgray;
+    padding:5px;
+    border-radius:5px;
 
-.qHeader__input > input {
+}
+.search >input 
+{
     background-color: transparent;
-    outline: none;
-    border: none;
-    color: rgb(49,49,49);
+    outline:none;
+    border:none;
+    color:rgb(49,49,49);   
 }
-
-.qHeader__input > .MuiSvgIcon-root {
-    color: gray;
+.search > .MuiSvgIcon-root
+{
+    color:grey;   
 }
-
-.qHeader__Rem {
+.others
+{
     display: flex;
     align-items: center;
-    margin-left: 25px;
+    margin-left:25px;
 }
 
-.qHeader__Rem > .qHeader__avatar {
+.others > .avatar
+{
     cursor: pointer;
 }
 
-.qHeader__Rem > .MuiSvgIcon-root {
+.others > .MuiSvgIcon-root {
     font-size: xx-large;
-    color: gray;
-    margin-left: 25px;
-    cursor: pointer;
+    color:grey;
+    margin-left:25px;
+    cursor:pointer;
 }
 
-.qHeader__Rem > .MuiSvgIcon-root:hover {
-    color: #1b368f;
+.others > .MuiSvgIcon-root:hover
+{
+    color:#1b368f;
 }
 
-.qHeader__Rem > .MuiButton-root {
-    color: white;
-    margin-left: 25px;
+.others > .MuiButton-root {
+    color:white;
+    margin-left:25px;
     text-transform: inherit;
-    background-color: #1b368f;
-    border-radius: 20px;
-    cursor: pointer;
+    background:#1b368f;
+    border-radius:20px;
+    cursor:pointer;
 }
-
-.qHeader__Rem > .MuiButton-root:hover {
-    color: white;
-    background-color: #3052c0;
+.others > .MuiButton-root:hover
+{
+    background-color: #1b368f;
+    color:white;
 }
 
 .modal__title {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-    border-bottom: 1px solid rgba(187,187,187,0.5);
+    border-bottom: 1px solid rgba(187, 187, 187, 0.5);
 }
 
-.modal__title > h5 {
+.modal__title>h5 {
     color: gray;
     font-size: 20px;
     cursor: pointer;
@@ -103,8 +110,8 @@
     margin-right: 30px;
 }
 
-.modal__title > h5:hover {
-    color: #3052c0;
+.modal__title>h5:hover {
+    color: #16171a;
 }
 
 .modal__info {
@@ -113,21 +120,19 @@
     margin-top: 30px;
 }
 
-.modal__info > p{
+.modal__info>p {
     margin-left: 10px;
     font-size: small;
     color: gray;
 }
 
-.modal__info > .modal__scope {
-    display: flex;
-    align-items: center;
-    color: rgb(98,98,98);
+.modal__info>.modal__select>select {
+    color: rgb(98, 98, 98);
     padding: 5px;
     margin-left: 10px;
-    background-color: rgb(230,230,230);;
-    border-radius: 33px;
     cursor: pointer;
+    background-color: rgb(230, 230, 230);
+    border-radius: 33px;
 }
 
 .modal__field {
@@ -137,14 +142,14 @@
     flex: 1;
 }
 
-.modal__field > .modal__fieldLink {
+.modal__field>.modal__fieldLink {
     color: gray;
     display: flex;
     margin-top: 10px;
     align-items: center;
 }
 
-.modal__field > .modal__fieldLink > input {
+.modal__field>.modal__fieldLink>.modal__link {
     flex: 1;
     border: none;
     outline: none;
@@ -159,7 +164,7 @@
     border-top: 1px solid lightgray;
 }
 
-.modal__buttons > .close {
+.modal__buttons>.cancel {
     margin-left: auto;
     border: none;
     margin-top: 5px;
@@ -172,11 +177,11 @@
     cursor: pointer;
 }
 
-.modal__buttons > .add {
+.modal__buttons>.add {
     border: none;
     outline: none;
     margin-top: 5px;
-    background-color: rgb(0,64,255);
+    background-color:#1b368f;
     color: white;
     font-weight: 700;
     padding: 10px;

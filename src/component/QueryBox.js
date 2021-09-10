@@ -9,8 +9,8 @@ import { Link } from '@material-ui/icons';
 import '../css/QueryBox.css';
 
 Modal.setAppElement("#root");
-const QueryBox=() =>{
-    const user=useSelector(selectUser)
+const QueryBox = () => {
+    const user=useSelector(selectUser);
     const [openModal,setOpenModal]=useState(false);
     const [selectOption,setSelectOption]=useState();
     const [input,setInput]=useState();
@@ -18,103 +18,103 @@ const QueryBox=() =>{
     const handleChange=(e)=>{
         setSelectOption(e.target.value);
     }
-    const handleQuestion=(e)=>{
-        e.preventDefault()
-        setOpenModal(false);
-        db.collection('queries').add({
-            section:selectOption,
-            question:input,
-            imageUrl:inputUrl,
-            user:user,
-            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-        });
-        setInput("");
-        setInputUrl("");
-        setSelectOption("");
-       
-    }
-    return (
-        <div className='queryBox'>
-            <div className='queryBox__info'>
-                <Avatar src={user.photo}/>
-                <h5>{user.display}</h5>
-            </div>
-            <div className='queryBox__query'onClick={()=>setOpenModal(true)}>
-                <p>What is Your Question or link?</p>
-            </div>
-            <Modal isOpen={openModal}
-                onRequestClose={()=>setOpenModal(false)}
-                shouldCloseOnOverlayClick={false}
-                style={{
-                    overlay:{
-                        width:700,
-                        height:600,
-                        backgroundColor:"rgba(0,0,0,0.8)",
-                        zIndex:"1000",
-                        top:"50%",
-                        left:"50%",
-                        marginTop:"-300px",
-                        marginLeft:"-350px"
-                    }
-                }}>
-                    <div className='modal__title'>
-                        <h5>Add Question</h5>
-                        <h5>Choose Section</h5>
-                        <h5>Share Link</h5>
-                    </div>
-                    <div className='modal__info'>
-                        <Avatar
-                        className='avatar'
-                        src={user.photo}/>
-                        <p>{user.display? user.display:user.email}</p>
-                        <div className='modal__select'>
-                            <select name="Choose Section" id="" onChange={handleChange} required>
-                                <option value="">Select..</option>
-                                <option value="Technology">Technology</option>
-                                <option value="Technical Events">Technical Events</option>
-                                <option value="Innovation">Innovation</option>
-                                <option value="Placement">Placement</option>
-                                <option value="Sports">Sports</option>
-                                <option value="Cultural Events">Cultural Events</option>
-                                <option value="Transportations">Transportations</option>
-                                <option value="Hostel Life">Hostel Life</option>
-                                <option value="Canteen">Canteen</option>
-                                <option value="Others">Others</option>
-                            </select>
+            const handleQuestion=(e)=>{
+                e.preventDefault()
+                setOpenModal(false);
+                db.collection('questions').add({
+                    section:selectOption,
+                    question:input,
+                    imageUrl:inputUrl,
+                    user:user,
+                    timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+                });
+                setInput("");
+                setInputUrl("");
+                setSelectOption("");
+               
+            }
+        return (
+            <div className="wrapper">
+                <div className="info"> 
+                    <Avatar src={user.photo} />
+                    <h5>{user.displayName}</h5>
+                </div>
+                <div className="box" onClick={()=>setOpenModal(true)}>
+                    <p>Feel free to post your question here </p>
+                </div>
+                <Modal isOpen={openModal}
+                    onRequestClose={()=>setOpenModal(false)}
+                    shouldCloseOnOverlayClick={false}
+                    style={{
+                        overlay:{
+                            width:700,
+                            height:600,
+                            backgroundColor:"rgba(0,0,0,0.8)",
+                            zIndex:"1000",  
+                            top:"50%",
+                            left:"50%",
+                            marginTop:"-300px",
+                            marginLeft:"-350px"
+                        }
+                    }}>
+                        <div className='modal__title'>
+                            <h5>Add Question</h5>
+                            <h5>Choose Section</h5>
+                            <h5>Share Link</h5>
                         </div>
-                    </div>
-                        
-                    <div className='modal__field'>
-                        <Input
-                        value={input}
-                        required
-                        onChange={(e)=>setInput(e.target.value)}
-                        type='text'
-                        placeholder="Select an appropriate option and post a question"/>
-                    
-                        <div className='modal__fieldLink'>
-                            <Link/>
+                        <div className='modal__info'>
+                            <Avatar
+                            className='avatar'
+                            src={user.photo}/>
+                            <p>{user.displayName? user.displayName:user.email}</p>
+                            <div className='modal__select'>
+                                <select name="Choose Section" id="" onChange={handleChange} required>
+                                    <option value="">Select section</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Technical Events">Technical Events</option>
+                                    <option value="Innovation">Innovation</option>
+                                    <option value="Placement">Placement</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Cultural Events">Cultural Events</option>
+                                    <option value="Transportations">Transportations</option>
+                                    <option value="Hostel Life">Hostel Life</option>
+                                    <option value="Canteen">Canteen</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                        </div>
+                            
+                        <div className='modal__field'>
                             <Input
-                            value={inputUrl}
-                            onChange={(e)=>setInputUrl(e.target.value)}
-                            className='modal__link'
+                            value={input}
+                            required
+                            onChange={(e)=>setInput(e.target.value)}
                             type='text'
-                            placeholder="Optional: include a link that gives context"/>
+                            placeholder="Select an appropriate option and post a question"/>
+                        
+                            <div className='modal__fieldLink'>
+                                <Link/>
+                                <Input
+                                value={inputUrl}
+                                onChange={(e)=>setInputUrl(e.target.value)}
+                                className='modal__link'
+                                type='text'
+                                placeholder="Optional: Include a link that gives context to the question"/>
+                            </div>
+                            <div className='modal__buttons'>
+                                <button 
+                                className='cancel'
+                                onClick={()=>setOpenModal(false)}>
+                                    Close
+                                </button>
+                                <button onClick={handleQuestion} type='submit' className='add'>
+                                    Add Question
+                                </button>
+                            </div>
                         </div>
-                        <div className='modal__buttons'>
-                            <button 
-                            className='cancle'
-                            onClick={()=>setOpenModal(false)}>
-                                Close
-                            </button>
-                            <button onClick={handleQuestion} type='submit' className='add'>
-                                Add Question
-                            </button>
-                        </div>
-                    </div>
-                </Modal>
-        </div>
-    );
-};
-
+                    </Modal>
+            </div>
+        )
+    }
+    
 export default QueryBox;
