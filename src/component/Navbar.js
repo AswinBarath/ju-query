@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import HomeIcon from '@material-ui/icons/Home';
-import "../css/Navbar.css";
-import logo from '../image/Icon.jpg';
+import { useSelector } from 'react-redux';
+import Modal from 'react-modal';
+import { selectUser } from '../features/userSlice';
+import db, { auth } from '../firebase';
+import firebase from 'firebase';
 import {AssignmentTurnedInOutlined,FeaturedPlayListOutlined,LanguageOutlined, LinkOutlined, NotificationsOutlined, PeopleAltOutlined, SearchOutlined } from '@material-ui/icons';
 import { Avatar, Button,Input} from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import db, { auth } from '../Firebase';
-import { selectUser } from '../features/userSlice';
-import Modal from 'react-modal';
-import firebase from 'firebase';
+import HomeIcon from '@material-ui/icons/Home';
+import logo from '../image/Icon.jpg';
+import "../css/Navbar.css";
 
 Modal.setAppElement("#root");
 
