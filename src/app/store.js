@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '../features/userSlice';
-import queryReducer from '../features/querySlice';
+import questionReducer from "../features/questionSlice";
 
-export const store = configureStore({
+// Reducer is a pure function that takes an action and the previous state of the 
+// application and returns the new state
+
+export default configureStore({
   reducer: {
     user: userReducer,
-    query: queryReducer,
+    question:questionReducer,
   },
 });
