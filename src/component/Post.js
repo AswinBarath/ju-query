@@ -5,7 +5,7 @@ import '../css/Post.css';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQuestionId, setQuestionInfo} from '../features/questionSlice';
-import db from '../Firebase';
+import db from '../firebase';
 import firebase from 'firebase';
 import { selectUser } from '../features/userSlice';
 
