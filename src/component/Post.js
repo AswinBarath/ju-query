@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectQueryId, setQueryInfo } from '../features/querySlice';
+import { selectUser } from '../features/userSlice';
+import firebase from 'firebase';
+import db from '../firebase';
+import Modal from 'react-modal';
 import { Avatar } from '@material-ui/core';
 import ArrowUpwardOutlinedIcon from '@material-ui/icons/ArrowUpwardOutlined';
 import ArrowDownwardOutlinedIcon from '@material-ui/icons/ArrowDownwardOutlined';
@@ -7,14 +13,8 @@ import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineO
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import '../css/Post.css';
-import Modal from 'react-modal';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectQueryId, setQueryInfo } from '../features/querySlice';
-import db from '../firebase';
-import firebase from 'firebase';
-import { selectUser } from '../features/userSlice';
 
-const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
+const Post = ( {qid, query, image, timestamp, section, juQueryUser} ) => {
 
     const [openModal,setOpenModal]=useState(false);
     const [answer, setAnswer]=useState("");
@@ -60,7 +60,7 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
             onClick={()=>
                 dispatch(
                     setQueryInfo({
-                        questionId:Id,
+                        questionId:qid,
                         questionName:query
                     })
                 )
@@ -120,14 +120,14 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
                     </Modal>
                 </div>
                 <div className='post__answer'>
-                    {getAnswer.map(({id,answers})=>(
+                    {getAnswer.map(({aid,answers})=>(
                         <p
-                        key={id}
-                        style={{position:"relative",
-                        paddingBottom:"5px"}}
+                        key = {aid}
+                        style = {{position:"relative",
+                                  paddingBottom:"5px"}}
                         >
                             {
-                                Id===answers.questionId?(
+                                qid===answers.questionId?(
                                     <span>
                                         {answers.answer}
                                         <br />
@@ -139,8 +139,8 @@ const Post=({Id,query,image,timestamp,section,juQueryUser})=> {
                                             right:"0px"
                                         }}>
                                             <span style={{color:"#3052c0"}}>
-                                                {answers.user.display?answers.user.display:answers.user.email}{" "}
-                                                on{" "}
+                                                { answers.user.displayName ? answers.user.displayName : answers.user.email} {" "}
+                                                on {" "}
                                                 {new Date(answers.timestamp?.toDate()).toLocaleString()}
                                             </span>
                                         </span>

@@ -40,7 +40,9 @@ function JUQuery() {
                 <Sidebar 
                     setSelection = {setSelection}
                 />
-                <Feed />
+                <Feed 
+                    posts = {posts}
+                />
                 <Widget />
             </div>
         </div>

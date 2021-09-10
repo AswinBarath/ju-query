@@ -1,21 +1,21 @@
 import React from 'react';
-import '../css/Feed.css';
-import Post from './Post';
 import QueryBox from './QueryBox';
+import Post from './Post';
+import '../css/Feed.css';
 
-function Feed({posts}) {
+function Feed( {posts} ) {
 
     return (
             <div className="feed">
                 <QueryBox />
                 {
-                    posts.map(({id, query}) => (
+                    posts.map(({qid, query}) => (
                         <Post
-                            key={id}
-                            Id={id}
-                            image={query.imageUrl}
-                            section={query.section}
-                            query= {query.question}
+                            key = {qid}
+                            qid = {qid}
+                            image = {query.imageUrl}
+                            section = {query.section}
+                            query = {query.question}
                             timestamp = {query.timestamp}
                             juQueryUser = {query.user}
                         />
