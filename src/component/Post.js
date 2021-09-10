@@ -1,13 +1,13 @@
-import { Avatar } from '@material-ui/core';
-import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutline, MoreHorizOutlined, RepeatOutlined, ShareOutlined } from '@material-ui/icons';
 import React, { useEffect,useState } from 'react';
-import '../css/Post.css';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQuestionId, setQuestionInfo} from '../features/questionSlice';
-import db from '../firebase';
-import firebase from 'firebase';
 import { selectUser } from '../features/userSlice';
+import firebase from 'firebase';
+import db from '../firebase';
+import { Avatar } from '@material-ui/core';
+import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutline, MoreHorizOutlined, RepeatOutlined, ShareOutlined } from '@material-ui/icons';
+import '../css/Post.css';
 
 const Post = ({id,question,imageUrl,timestamp,section,JuUser}) => {
 
