@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import JUQuery from './component/JUQuery';
-import Login from './component/auth/Login';
-import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
+import JUQuery from './component/JUQuery';
+import Login from './component/auth/Login';
+import './App.css';
 
 function App() {
   const user = useSelector(selectUser);

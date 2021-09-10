@@ -42,7 +42,7 @@ const Navbar=()=>{
         setSelectOption("");
        
     }
-    console.log(selectOption)
+    
     return(
         <div className='qHeader'>
             <div className='qHeader__logo'>

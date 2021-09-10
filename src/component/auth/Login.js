@@ -1,7 +1,6 @@
-import React from 'react'
-import './Login.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {auth, googleProvider, facebookProvider } from '../../firebase';
+import './Login.css';
 
 // Login (functional) component which takes care of user input for email-password option from login
 const Login=()=> {
