@@ -23,6 +23,7 @@ An **Online QnA (Question and Answer) platform** for students and faculties of J
 - [What's unique in this Project](#whats-unique-in-this-project)
 - [System Design](#system-design)
 - [Contributors](#Contributors)
+- [Developer instructions](#developer-instructions)
 
 ---
 
