@@ -4,7 +4,8 @@ import { selectUser } from '../features/userSlice';
 import firebase from 'firebase';
 import db from '../firebase';
 import Modal from 'react-modal';
-import {Avatar, Input, Link } from '@material-ui/icons';
+import { Avatar, Input } from '@material-ui/core';
+import { Link } from '@material-ui/icons';
 import '../css/QueryBox.css';
 
 Modal.setAppElement("#root");
