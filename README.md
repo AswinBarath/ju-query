@@ -223,6 +223,7 @@ secure and gain their trust over our platform's user experience.
 - T Aswin Barath <https://github.com/AswinBarath>
 - Souvik kar <https://github.com/souvik-21>
 - Sri Sarvesh <https://github.com/SriSarveshA1>
+- Vyshnav Raj <https://github.com/vyshnav99>
 - G Kishore <https://github.com/gkrockz>
 
 ---
