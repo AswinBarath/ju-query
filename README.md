@@ -18,12 +18,44 @@ An **Online QnA (Question and Answer) platform** for students and faculties of J
 
 ## Table of content
 
+- [Demo](#Demo)
 - [Screenshots](#Screenshots)
 - [Technologies](#Technologies)
 - [What's unique in this Project](#whats-unique-in-this-project)
 - [System Design](#system-design)
 - [Contributors](#Contributors)
 - [Developer instructions](#developer-instructions)
+
+---
+
+## Demo
+
+### Google OAuth & Homepage
+  - Google OAuth Login
+  - Asking Question on the platform
+  - Answer the question
+
+<p>
+  <img src="./assets/demo/JU-Query-Ask-Answer-Normal-Google-OAuth.gif" />
+</p>
+
+<br />
+
+### Registration & Login
+
+<p>
+  <img src="./assets/demo/JU-Query Register Login.gif" />
+</p>
+
+<br />
+
+### Facebook OAuth
+
+<p>
+  <img src="./assets/demo/JU-Query Facebook OAuth.gif" />
+</p>
+
+<br />
 
 ---
 
