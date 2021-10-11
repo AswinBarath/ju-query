@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
-import JUQuery from './component/JUQuery';
-import Login from './component/auth/Login';
+import HomePage from './pages/homepage/HomePage';
+import Login from './components/auth/Login';
 import './App.css';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       {
-        user ? (<JUQuery />) : (<Login />)
+        user ? (<HomePage />) : (<Login />)
       }
       
      </div>
