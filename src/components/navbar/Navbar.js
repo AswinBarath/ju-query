@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
+// withRouter is a higher-order component 
+// ( A function which takes component as input and return modified component as output )
+import { withRouter } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
 import db, { auth } from '../../firebase';
 import firebase from 'firebase';
@@ -12,7 +15,7 @@ import "./Navbar.css";
 
 Modal.setAppElement("#root");
 
-const Navbar = () => {
+const Navbar = ({history, match}) => {
 
 const user = useSelector(selectUser);
 const [openModal,setopenModal] = useState(false); 
@@ -48,7 +51,7 @@ const handleQuestion = (e) => {
                 <div className="icon">
                     <HomeIcon />
                 </div>
-                <div className="icon">
+                <div className="icon" onClick={() => history.push(`${match.url}/following`)}>
                     <FeaturedPlayListOutlined />
                 </div>
                 <div className="icon">
@@ -127,4 +130,4 @@ const handleQuestion = (e) => {
     )
 }
 
-export default Navbar;
+export default withRouter(Navbar);

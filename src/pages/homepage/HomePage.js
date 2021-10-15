@@ -5,7 +5,8 @@ import Feed from '../../components/post/Feed';
 import Widget from '../../components/widget/Widget';
 import './HomePage.css';
 
-function HomePage() {
+function HomePage(props) {
+    console.log(props);
     return (
         <div className="home">
            <Navbar /> 

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
 import HomePage from './pages/homepage/HomePage';
 import Login from './components/auth/Login';
 import './App.css';
+import Following from './pages/followingpage/Following';
 
 function App() {
   const user = useSelector(selectUser);
@@ -36,7 +38,19 @@ function App() {
   return (
     <div className="App">
       {
-        user ? (<HomePage />) : (<Login />)
+        user ? 
+          (
+            <div>
+              <Switch>
+                <Route exact={true} path='/' component={HomePage} />
+                <Route exact path='/following' component={Following} />
+              </Switch>
+            </div>
+          ) 
+          : 
+          (
+            <Login />
+          )
       }
       
      </div>
