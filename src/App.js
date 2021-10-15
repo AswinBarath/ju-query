@@ -6,7 +6,7 @@ import { auth } from './firebase';
 import HomePage from './pages/homepage/HomePage';
 import Login from './components/auth/Login';
 import './App.css';
-import Following from './pages/followingpage/Following';
+import Following from './pages/followingpage/FollowingPage';
 
 function App() {
   const user = useSelector(selectUser);
