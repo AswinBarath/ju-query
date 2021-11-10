@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
-import HomePage from './pages/homepage/HomePage';
+
 import Login from './components/auth/Login';
+import HomePage from './pages/homepage/HomePage';
+import Following from './pages/followingpage/FollowingPage';
+import Questions from './pages/questionpage/QuestionsPage';
+
 import './App.css';
-import Following from './pages/followingpage/Following';
 
 function App() {
   const user = useSelector(selectUser);
@@ -44,6 +48,7 @@ function App() {
               <Switch>
                 <Route exact={true} path='/' component={HomePage} />
                 <Route exact path='/following' component={Following} />
+                <Route exact path='/question' component={Questions} />
               </Switch>
             </div>
           ) 
