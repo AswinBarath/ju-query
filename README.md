@@ -1,5 +1,9 @@
 # JU Query
 
+<p>
+<img src="assets/JU Query Cover Design.png" alt="JU Query Cover Design" width=800px />
+</p>
+
 An **Online QnA (Question and Answer) platform** for students and faculties of Jain University.
 
 - “JUQuery” web application is a deliverable for students and faculties of the university
