@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from 'react-modal';
 // withRouter is a higher-order component 
 // ( A function which takes component as input and return modified component as output )
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { selectUser } from '../../features/userSlice';
 import db, { auth } from '../../firebase';
 import firebase from 'firebase';
@@ -17,30 +17,35 @@ Modal.setAppElement("#root");
 
 const Navbar = ({history, match}) => {
 
-const user = useSelector(selectUser);
-const [openModal,setopenModal] = useState(false); 
-const [selectOption,setSelectOption]=useState();
-const [input,setInput]  = useState("");
-const[inputUrl,setInputUrl] = useState("");
+    const user = useSelector(selectUser);
+    const [openModal,setopenModal] = useState(false); 
+    const [selectOption,setSelectOption]=useState();
+    const [input,setInput]  = useState("");
+    const[inputUrl,setInputUrl] = useState("");
 
-const handleChange=(e)=>{
-    setSelectOption(e.target.value);
-}
+    const handleChange=(e)=>{
+        setSelectOption(e.target.value);
+    }
 
-const handleQuestion = (e) => {
-    e.preventDefault();
-    setopenModal(false);
-    db.collection('questions').add({
-        section:selectOption,
-        question:input,
-        imageUrl:inputUrl,
-        timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-        user: user,
-    });
-    setInput("");
-    setInputUrl("");
-    setSelectOption("");
-}
+    const handleQuestion = (e) => {
+        e.preventDefault();
+        setopenModal(false);
+        db.collection('questions').add({
+            section:selectOption,
+            question:input,
+            imageUrl:inputUrl,
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+            user: user,
+        });
+        setInput("");
+        setInputUrl("");
+        setSelectOption("");
+    }
+
+    const navStyle = {
+        listStyle: 'none',
+        textDecoration: 'none',
+    };
 
     return (
         <div className="navbar">
@@ -48,15 +53,22 @@ const handleQuestion = (e) => {
                 <img src={logo} alt="JU"/>
             </div>
             <div className="icons_wrapper">
-                <div className="icon">
-                    <HomeIcon />
-                </div>
-                <div className="icon" onClick={() => history.push(`${match.url}/following`)}>
-                    <FeaturedPlayListOutlined />
-                </div>
-                <div className="icon">
-                    <AssignmentTurnedInOutlined />
-                </div>
+                <Link to="/" style={navStyle}>
+                    <div className="icon">
+                            <HomeIcon />
+                    </div>
+                </Link>
+                {/* <div className="icon" onClick={() => history.push(`${match.url}/following`)}> */}
+                <Link to="/following" style={navStyle}>
+                    <div className="icon">
+                            <FeaturedPlayListOutlined />
+                    </div>
+                </Link>
+                <Link to="/question" style={navStyle}>
+                    <div className="icon">
+                            <AssignmentTurnedInOutlined />
+                    </div>
+                </Link>
                 <div className="icon">
                     <PeopleAltOutlined />
                 </div>

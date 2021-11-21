@@ -8,7 +8,7 @@ import { auth } from './firebase';
 import Login from './components/auth/Login';
 import HomePage from './pages/homepage/HomePage';
 import Following from './pages/followingpage/FollowingPage';
-import Questions from './pages/questionpage/QuestionsPage';
+import Questions from './pages/questionspage/QuestionsPage';
 
 import './App.css';
 
