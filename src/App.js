@@ -49,6 +49,8 @@ function App() {
                 <Route exact={true} path='/' component={HomePage} />
                 <Route exact path='/following' component={Following} />
                 <Route exact path='/question' component={Questions} />
+                {/* <Route exact path='/users' component={Users} /> */}
+                {/* <Route exact path='/notification' component={Notification} /> */}
               </Switch>
             </div>
           ) 

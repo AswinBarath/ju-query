@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import Question from '../../components/sidebar/Question';
-import Feed from '../../components/post/Feed';
+// import Question from '../../components/sidebar/Question';
+import MyFeed from '../../components/questions/MyFeed';
 import './QuestionsPage.css';
 
 function QuestionsPage() {
@@ -9,8 +9,8 @@ function QuestionsPage() {
         <div className="home">
            <Navbar /> 
            <div className="Questions__content">
-              <Question />
-              <Feed />
+              {/* <Question /> */}
+              <MyFeed />
            </div>
         </div>
     )
