@@ -16,7 +16,7 @@ function MyFeed() {
             snapshot => setPosts(
                 snapshot.docs.filter(function (doc) {
                     // console.log(doc.data().user)
-                    return doc.data().user.email === user.email || doc.data().user.display === user.display;
+                    return doc.data().user.email === user.email // || doc.data().user.display === user.display;
                 }).map(function (doc) {
                     return { 
                         id:doc.id,
