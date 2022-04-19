@@ -6,7 +6,7 @@ import Widget from '../../components/widget/Widget';
 import './HomePage.css';
 
 function HomePage(props) {
-    console.log(props);
+    // console.log(props);
     return (
         <div className="home">
            <Navbar /> 
