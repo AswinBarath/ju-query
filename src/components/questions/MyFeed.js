@@ -29,7 +29,7 @@ function MyFeed() {
 
     return (
         <div className="feed">
-            <h1>Your Questions</h1>
+            <h2>Your Questions</h2>
             {
                 posts.map(({id,question})=> (
                     <Post key={id} 

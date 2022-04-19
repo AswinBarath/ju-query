@@ -15,25 +15,28 @@ const QueryBox = () => {
     const [selectOption,setSelectOption]=useState();
     const [input,setInput]=useState();
     const [inputUrl,setInputUrl]=useState();
+    
     const handleChange=(e)=>{
         setSelectOption(e.target.value);
     }
-            const handleQuestion=(e)=>{
-                e.preventDefault()
-                setOpenModal(false);
-                db.collection('questions').add({
-                    section:selectOption,
-                    question:input,
-                    imageUrl:inputUrl,
-                    user:user,
-                    timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-                });
-                setInput("");
-                setInputUrl("");
-                setSelectOption("");
+    
+    const handleQuestion=(e)=>{
+        e.preventDefault()
+        setOpenModal(false);
+        db.collection('questions').add({
+            section:selectOption,
+            question:input,
+            imageUrl:inputUrl,
+            user:user,
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+        });
+        setInput("");
+        setInputUrl("");
+        setSelectOption("");
                
-            }
-        return (
+    }
+        
+    return (
             <div className="wrapper">
                 <div className="info"> 
                     <Avatar src={user.photo} />

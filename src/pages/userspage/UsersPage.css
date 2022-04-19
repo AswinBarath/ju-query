@@ -1,0 +1,30 @@
+.Users__content {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.wrapper {
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 2px;
+    cursor:pointer;
+}
+
+.wrapper:hover {
+    border:1px solid lightgray;
+}
+
+/* .box
+{
+    display: flex;
+    margin-top: 8px;
+}
+
+.box > p
+{
+    font-weight: bold;
+    color:black;
+} */

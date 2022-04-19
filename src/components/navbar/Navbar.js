@@ -69,12 +69,16 @@ const Navbar = ({history, match}) => {
                             <AssignmentTurnedInOutlined />
                     </div>
                 </Link>
-                <div className="icon">
-                    <PeopleAltOutlined />
-                </div>
-                <div className="icon">
-                    <NotificationsOutlined />
-                </div>
+                <Link to="/users" style={navStyle}>
+                    <div className="icon">
+                        <PeopleAltOutlined />
+                    </div>
+                </Link>
+                <Link to="/notification" style={navStyle}>
+                    <div className="icon">
+                        <NotificationsOutlined />
+                    </div>
+                </Link>
             </div>
             <div className="search">
                 <SearchOutlined />

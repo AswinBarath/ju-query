@@ -9,6 +9,8 @@ import Login from './components/auth/Login';
 import HomePage from './pages/homepage/HomePage';
 import Following from './pages/followingpage/FollowingPage';
 import Questions from './pages/questionspage/QuestionsPage';
+import Users from './pages/userspage/UsersPage';
+import Notification from './pages/notificationpage/NotificationPage';
 
 import './App.css';
 
@@ -49,8 +51,8 @@ function App() {
                 <Route exact={true} path='/' component={HomePage} />
                 <Route exact path='/following' component={Following} />
                 <Route exact path='/question' component={Questions} />
-                {/* <Route exact path='/users' component={Users} /> */}
-                {/* <Route exact path='/notification' component={Notification} /> */}
+                <Route exact path='/users' component={Users} />
+                <Route exact path='/notification' component={Notification} />
               </Switch>
             </div>
           ) 
