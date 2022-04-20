@@ -11,7 +11,7 @@ function UsersPage() {
             <div className="Users__content">
                 <div className="wrapper">
                     
-                    <div className="box">
+                    <div className="UsersBox">
                         <p>                            
                             <br />JU Query Users
                         </p>
@@ -21,9 +21,9 @@ function UsersPage() {
                         <div className="container">
                             <UserCards />
                         </div>
-                    </div>                
                     </div>
-            
+                    
+                </div>            
             </div>
         </div>
     )

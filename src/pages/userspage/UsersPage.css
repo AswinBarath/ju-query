@@ -17,14 +17,14 @@
     border:1px solid lightgray;
 }
 
-/* .box
-{
-    display: flex;
-    margin-top: 8px;
-}
+.Cards {
+    /* display: flex;
+    flex-direction: column; */
+    font-family: sans-serif;
+    text-align: center;
+  }
 
-.box > p
+.UsersBox
 {
-    font-weight: bold;
-    color:black;
-} */
+    justify-content: center;
+}

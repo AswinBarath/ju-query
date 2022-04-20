@@ -1,5 +1,7 @@
 // Importing "firebase" object from firebase npm package
-import firebase from "firebase";
+import firebase from 'firebase/app';
+import 'firebase/auth';        // for authentication
+import 'firebase/firestore';   // for cloud firestore
 
 // firebaseConfig contains all the information of developer API keys and database IDs to access the developer console from firebase
 const firebaseConfig = {
