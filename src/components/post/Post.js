@@ -49,7 +49,7 @@ const Post = ({id,question,imageUrl,timestamp,section,JuUser}) => {
             <div className="post_info">
                 <Avatar src={JuUser.photo}/>
                 <div className='post__details'>
-                    <h5>{JuUser.displayName?JuUser.displayName:JuUser.email}</h5>
+                    <h5>{JuUser.display?JuUser.display:JuUser.email}</h5>
                     <span>posted on</span>
                     <p>{section}</p>
                     <small>{new Date(timestamp?.toDate()).toLocaleString()}</small>
@@ -76,7 +76,7 @@ const Post = ({id,question,imageUrl,timestamp,section,JuUser}) => {
                         }}>
                         <div className='modal__question'>
                             <h1>{question}</h1>
-                            <p>asked by <span className='name'>{JuUser.displayName?JuUser.displayName:JuUser.email}</span>{""}
+                            <p>asked by <span className='name'>{JuUser.display?JuUser.display:JuUser.email}</span>{""}
                              on <span className='name'> {new Date(timestamp?.toDate()).toLocaleString()}</span>
                             </p>
                         </div>
@@ -110,7 +110,8 @@ const Post = ({id,question,imageUrl,timestamp,section,JuUser}) => {
                                     right:"0px"
                                 }}>
                                     <span style={{color:"#3052c0"}}>
-                                        {answers.user.displayName?answers.user.displayName:answers.user.email}{" "}
+                                        {/* {console.log(answers)} */}
+                                        {answers.user.display?answers.user.display:answers.user.email}{" "}
                                         on{" "}
                                         {new Date(answers.timestamp?.toDate()).toLocaleString()}
                                     </span>
