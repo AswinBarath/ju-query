@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectQuestionId, setQuestionInfo} from '../../features/questionSlice';
 import { selectUser } from '../../features/userSlice';
-import firebase from '../../firebase';
+import firebase from 'firebase';
 import db from '../../firebase';
 import { Avatar } from '@material-ui/core';
 import { ArrowDownwardOutlined, ArrowUpwardOutlined, ChatBubbleOutline, MoreHorizOutlined, RepeatOutlined, ShareOutlined } from '@material-ui/icons';
