@@ -26,5 +26,8 @@
 
 .UsersBox
 {
+    display: flex;
     justify-content: center;
+    font-size: larger;
+    font-weight: bold;
 }
