@@ -17,15 +17,24 @@ function MyFeed() {
         setPosts(
           snapshot.docs
             .filter(function (doc) {
+                /* debug console */
               console.log(
-                doc.data().user,
+                doc.data().user.email === currentUser.email,
+                doc.data().user.email,
+                "===",
                 currentUser.email,
+                doc.data().currentUser.display === currentUser.display,
+                doc.data().currentUser.display,
+                "===",
                 currentUser.display
               );
+              /* debug console */
               if (doc.data().user.email === currentUser.email) {
-                return doc.data().user.email === currentUser.email;
+                return true;
+              } else if (doc.data().currentUser.display === currentUser.display) {
+                return true;
               } else {
-                return doc.data().user.display === currentUser.display;
+                return false;
               }
             })
             .map(function (doc) {
