@@ -23,15 +23,15 @@ function MyFeed() {
                 doc.data().user.email,
                 "===",
                 currentUser.email,
-                doc.data().currentUser.display === currentUser.display,
-                doc.data().currentUser.display,
+                doc.data().user.display === currentUser.display,
+                doc.data().user.display,
                 "===",
                 currentUser.display
               );
               /* debug console */
               if (doc.data().user.email === currentUser.email) {
                 return true;
-              } else if (doc.data().currentUser.display === currentUser.display) {
+              } else if (doc.data().user.display === currentUser.display) {
                 return true;
               } else {
                 return false;
