@@ -17,20 +17,28 @@ function MyFeed() {
         setPosts(
           snapshot.docs
             .filter(function (doc) {
-                /* debug console */
-              console.log(
-                doc.data().user.email === currentUser.email,
-                doc.data().user.email,
-                "===",
-                currentUser.email,
-                doc.data().user.display === currentUser.display,
-                doc.data().user.display,
-                "===",
-                currentUser.display
-              );
               /* debug console */
-              if (doc.data().user.email === currentUser.email) {
+              //   console.log(
+              //     doc.data().user.email === currentUser.email,
+              //     doc.data().user.email,
+              //     "===",
+              //     currentUser.email,
+              //     doc.data().user.display === currentUser.display,
+              //     doc.data().user.display,
+              //     "===",
+              //     currentUser.display
+              //   );
+              /* debug console */
+              if (
+                doc.data().user.email === undefined || doc.data().user.email === null
+              ) {
+                return false;
+              } else if (doc.data().user.email === currentUser.email) {
                 return true;
+              } else if (
+                doc.data().user.display === undefined || doc.data().user.display === null
+              ) {
+                return false;
               } else if (doc.data().user.display === currentUser.display) {
                 return true;
               } else {
