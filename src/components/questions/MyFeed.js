@@ -7,7 +7,7 @@ import { selectUser } from '../../features/userSlice';
 import { useSelector } from 'react-redux';
 
 function MyFeed() {
-    const user = useSelector(selectUser);
+    const currentUser = useSelector(selectUser);
 
     const [posts,setPosts] = useState([])
     useEffect(()=> {
@@ -16,7 +16,7 @@ function MyFeed() {
             snapshot => setPosts(
                 snapshot.docs.filter(function (doc) {
                     // console.log(doc.data().user)
-                    return doc.data().user.email === user.email // || doc.data().user.display === user.display;
+                    return doc.data().user.email === currentUser.email // || doc.data().user.display === user.display;
                 }).map(function (doc) {
                     return { 
                         id:doc.id,
